@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Калькулятор" Height="500" Width="350" MinHeight="300" MinWidth="200">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+        </Style>
+      
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBox x:Name="history" IsReadOnly="True" Text="{Binding History}"
+                 Height="25" Margin="5 2" Grid.Row="0"/>
+        <TextBox x:Name="curNum" Grid.Row="1" Height="45" Margin="5 2"
+                 TextAlignment="Right" FontSize="28" FontWeight="Bold" BorderBrush="Blue"
+                 VerticalContentAlignment="Center" IsReadOnly="True" Text="{Binding Current}"/>
+        <Grid Grid.Row="2" Margin="5 2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Row="0" Grid.Column="0" Click="Button_Click">CE</Button>
+            <Button Grid.Row="0" Grid.Column="1" Click="Button_Click">C</Button>
+            <Button Grid.Row="0" Grid.Column="2" Click="Button_Click" Content="&lt;-"></Button>
+            <Button Grid.Row="0" Grid.Column="3" Click="Button_Click">/</Button>
+            <Button Grid.Row="1" Grid.Column="0" Click="Button_Click">7</Button>
+            <Button Grid.Row="1" Grid.Column="1" Click="Button_Click">8</Button>
+            <Button Grid.Row="1" Grid.Column="2" Click="Button_Click">9</Button>
+            <Button Grid.Row="1" Grid.Column="3" Click="Button_Click">*</Button>
+            <Button Grid.Row="2" Grid.Column="0" Click="Button_Click">4</Button>
+            <Button Grid.Row="2" Grid.Column="1" Click="Button_Click">5</Button>
+            <Button Grid.Row="2" Grid.Column="2" Click="Button_Click">6</Button>
+            <Button Grid.Row="2" Grid.Column="3" Click="Button_Click">-</Button>
+            <Button Grid.Row="3" Grid.Column="0" Click="Button_Click">1</Button>
+            <Button Grid.Row="3" Grid.Column="1" Click="Button_Click">2</Button>
+            <Button Grid.Row="3" Grid.Column="2" Click="Button_Click">3</Button>
+            <Button Grid.Row="3" Grid.Column="3" Click="Button_Click">+</Button>
+            <Button Grid.Row="4" Grid.Column="0" Click="Button_Click">.</Button>
+            <Button Grid.Row="4" Grid.Column="1" Click="Button_Click">0</Button>
+            <Button Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Click="Button_Click">=</Button>
+        </Grid>
     </Grid>
 </Window>

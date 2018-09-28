@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,18 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Calc Calculate { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            Calculate = new Calc();
+            DataContext = Calculate;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            Calculate.EnterNum(b.Content.ToString());
         }
     }
 }
